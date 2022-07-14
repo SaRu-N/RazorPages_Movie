@@ -1,3 +1,6 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using RazorPagesMovie.Data;
 namespace RazorPagesMovie
 {
     public class Program
@@ -5,6 +8,8 @@ namespace RazorPagesMovie
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<RazorPagesMovieContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("RazorPagesMovieContext") ?? throw new InvalidOperationException("Connection string 'RazorPagesMovieContext' not found.")));
 
             // Add services to the container.
             builder.Services.AddRazorPages();
