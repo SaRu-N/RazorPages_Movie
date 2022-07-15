@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using RazorPagesMovie.Data;
+using RazorPagesMovie.Models;
 namespace RazorPagesMovie
 {
     public class Program
@@ -15,6 +16,14 @@ namespace RazorPagesMovie
             builder.Services.AddRazorPages();
 
             var app = builder.Build();
+            //Add the seed initializer
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+
+                SeedData.Initialize(services);
+            }
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
