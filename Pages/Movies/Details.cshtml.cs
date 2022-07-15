@@ -21,9 +21,10 @@ namespace RazorPagesMovie.Pages.Movies
 
       public Movie Movie { get; set; } = default!; 
 
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Movie == null)
+            if (id == null )
             {
                 return NotFound();
             }
