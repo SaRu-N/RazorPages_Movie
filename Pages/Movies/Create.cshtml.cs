@@ -18,7 +18,7 @@ namespace RazorPagesMovie.Pages.Movies
         {
             _context = context;
         }
-
+        //using IActionResul must return somethingt 
         public IActionResult OnGet()
         {
             return Page();

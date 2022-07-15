@@ -12,9 +12,12 @@
 <div class="row">
     <div class="col-md-4">
         <form method="post">
+            @*validation-summary and validation-for display validation errors.*@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                @*generates the label caption and [for] attribute for the Title property.*@
                 <label asp-for="Movie.Title" class="control-label"></label>
+                 @*uses the DataAnnotations attributes and produces HTML attributes needed for jQuery Validation on the client-side.*@
                 <input asp-for="Movie.Title" class="form-control" />
                 <span asp-validation-for="Movie.Title" class="text-danger"></span>
             </div>

@@ -20,8 +20,10 @@ namespace RazorPagesMovie.Pages.Movies
         }
 
         public IList<Movie> Movie { get;set; } = default!;
-
+        //When a request is made for the page, the OnGetAsync method returns a list of movies to the Razor Page
+        //using task in OnGetAsync no return statement is required
         public async Task OnGetAsync()
+            
         {
             if (_context.Movie != null)
             {
